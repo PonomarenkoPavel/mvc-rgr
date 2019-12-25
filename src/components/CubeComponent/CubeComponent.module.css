@@ -1,0 +1,46 @@
+.wrapper {
+  margin: 800px;
+  perspective: 900px;
+}
+
+.side {
+  width: 300px;
+  height: 300px;
+  background-color: rgba(0,0,0,0.2);
+  background: radial-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.5));
+  position: absolute;
+  border: 10px solid #fff;
+  border-radius: 10px;
+  font-size: 5em;
+  color: #fff;
+  line-height: 300px;
+  text-align: center;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.4);
+  box-shadow: 0 0 6px rgba(0,0,0,0.5);
+  transform-origin: 50% 50% -150px;
+}
+
+.cube {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  transform-style: preserve-3d;
+  transform-origin: 50% 50% -150px;
+  /* transform: rotate3d(1,1,1,30deg); */
+}
+
+.top {
+  transform: rotateX(90deg);
+}
+.bottom {
+  transform: rotateX(-90deg);
+}
+.left {
+  transform: rotateY(-90deg);
+}
+.right {
+  transform: rotateY(90deg);
+}
+.back {
+  transform: rotateY(180deg);
+}

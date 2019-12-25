@@ -1,0 +1,67 @@
+import React from 'react';
+import styles from './MainComponent.module.css';
+
+export const MainComponent = ({
+  length,
+  width,
+  height,
+  setWidth,
+  setLength,
+  setHeight,
+  setOperation,
+  handleSubmit,
+  operation,
+  result,
+ }) =>{ 
+  return (
+    <form className={styles.form}>
+      <div className={styles.title}>Свойства параллелепипеда</div>
+      <div className={styles.form_row}>
+        <input 
+          type="text" 
+          id="length"
+          name="length" 
+          required 
+          value={length}
+          onChange={setLength}
+        />
+        <label htmlFor="title">Длина</label>
+      </div>
+      <div className={styles.form_row}>
+        <input 
+          type="text" 
+          id="width"
+          name="width" 
+          required 
+          value={width}
+          onChange={setWidth}
+        />
+        <label htmlFor="title">Ширина</label>
+      </div>
+      <div className={styles.form_row}>
+        <input 
+          type="text" 
+          id="height"
+          name="height" 
+          required 
+          value={height}
+          onChange={setHeight}
+        />
+        <label htmlFor="title">Высота</label>
+      </div>
+      <div className={styles.form_row}>
+        <select name='operation' onChange={setOperation} value={operation}>
+          <option value='1'>Объем параллелепипеда</option>
+          <option value='2'>Площадь поверхности параллелепипеда</option>
+          <option value='3'>Диагональ</option>
+          <option value='4'>Площадь лицевой грани</option>
+          <option value='5'>Площадь боковой грани</option>
+        </select>
+      </div>
+      <button className={styles.button} onClick={handleSubmit}>
+        Вычислить
+      </button>
+      {!!Object.keys(result).length && result.type}
+    </form>
+  );
+}
