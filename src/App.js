@@ -8,7 +8,7 @@ function App() {
   return (
     <>
       <CubeComponent />
-      {/* <MainContainerConnect content='123' buttonText='123' title='123' /> */}
+      <MainContainerConnect content='123' buttonText='123' title='123' />
     </>
   );
 }

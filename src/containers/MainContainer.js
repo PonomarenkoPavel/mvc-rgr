@@ -28,26 +28,31 @@ class MainContainer extends PureComponent {
         return {
           type: 'Объем параллелепипеда',
           value: (width*length*height),
+          unit: 'см^3',
         };
       case 2:
         return {
           type: 'Площадь поверхности параллелепипеда',
           value: 2*(width*length + length*height + width*height),
+          unit: 'см^2',
         };
       case 3: 
         return {
           type: 'Диагональ',
           value: Math.sqrt(length**2 + width**2 + height**2).toFixed(2),
+          unit: 'см',
         };
       case 4: 
         return {
           type: 'Площадь лицевой грани',
           value: (length*height),
+          unit: 'см^2',
         };
       case 5:
         return {
           type: 'Площадь боковой грани',
           value: (width*height),
+          unit: 'см^2',
         };
       default: 
         return {

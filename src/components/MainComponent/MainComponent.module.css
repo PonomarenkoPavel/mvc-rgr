@@ -1,12 +1,19 @@
+.container {
+  display: flex;
+}
+.form_container {
+  width: 50%;
+  display: flex;
+  justify-content: flex-end;
+}
 .form {
   padding: 80px 30px 30px;
   max-width: 350px;
-  margin: auto;
+  margin: 0 20px;
 }
 .title {
   position: relative;
   z-index: 5;
-  font-size: 23px;
   margin: 0 0 30px;
   text-align: center;
   color: #4a90e2;
@@ -17,7 +24,8 @@
   position: relative;
   margin-bottom: 40px;
 }
-.form_row input {
+.form_row input,
+.form_row select {
   display: block;
   width: 100%;
   padding: 0 10px;
@@ -50,14 +58,17 @@
   cursor: text;
 }
 .form_row input:focus,
-.form_row textarea:focus {
+.form_row textarea:focus,
+.form_row select:focus {
   outline: 0;
   border-color: #F77A52;
 }
 .form_row input:focus + label, 
 .form_row input:valid + label,
 .form_row textarea:focus + label,
-.form_row textarea:valid + label {
+.form_row textarea:valid + label,
+.form_row select:focus + label,
+.form_row select:valid + label {
   top: -20px;
   margin-left: -14px;
   font-size: 14px;
@@ -69,7 +80,9 @@
 .form_row input:focus + label:hover,
 .form_row input:valid + label:hover,
 .form_row textarea:focus + label:hover,
-.form_row textarea:valid + label:hover {
+.form_row textarea:valid + label:hover,
+.form_row select:focus + label,
+.form_row select:valid + label {
   cursor: default;
 }
 .image {
@@ -93,3 +106,21 @@
   cursor: pointer;
   background-color: #5a9de9;
 }
+
+.result {
+  padding: 80px 30px 30px;
+  margin: 0 20px;
+  display: flex;
+  flex-direction: column;
+  color: #4a90e2;
+  font-size: 30px;
+  font-weight: normal;
+}
+
+.result_text {
+  color: #000000;
+  font-size: 23px;
+}
+
+
+

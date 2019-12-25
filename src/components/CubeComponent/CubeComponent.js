@@ -1,21 +1,53 @@
-import React from 'react';
+import React, { PureComponent } from 'react';
 import styles from './CubeComponent.module.css';
 
+let flag = false;
+
 function mouseMove(event) {
-  
+  if (flag) {
+    document.getElementById('cube').style.cssText = `transform: rotateX(${-event.pageY}deg) rotateY(${event.pageX}deg);`;
+  }
 }
 
-export const CubeComponent = () => {
-  return (
-    <div className={styles.wrapper}>
-      <div className={styles.cube}>
-        <div className={`${styles.side} ${styles.back}`}>1</div>
-        <div className={`${styles.side} ${styles.top}`}>2</div>
-        <div className={`${styles.side} ${styles.bottom}`}>3</div>
-        <div className={`${styles.side} ${styles.left}`}>4</div>
-        <div className={`${styles.side} ${styles.right}`}>5</div>
-        <div className={`${styles.side} ${styles.front}`}>6</div>
+function keyDown(event) {
+  
+  if (event.code == 'KeyQ') {
+    flag = true;
+  }
+} 
+
+function keyUp(event) {
+  if (event.code == 'KeyQ') {
+    flag = false;
+  }
+}
+
+export class CubeComponent extends PureComponent {
+  
+  componentDidMount() {
+    document.addEventListener('keydown', keyDown);
+    document.addEventListener('keyup', keyUp);
+    document.getElementById('container').addEventListener('mousemove', mouseMove);
+  }
+
+  componentWillUnmount() {
+    document.getElementById('container').removeEventListener('mousemove', mouseMove);
+  }
+
+  render() {
+    return (
+      <div className={styles.container} id='container'>
+        <div className={styles.wrapper}>
+          <div className={styles.cube} id='cube'>
+            <div className={`${styles.side} ${styles.back}`}>Задняя грань</div>
+            <div className={`${styles.side} ${styles.top}`}>Верхняя грань</div>
+            <div className={`${styles.side} ${styles.bottom}`}>Нижняя грань</div>
+            <div className={`${styles.side} ${styles.left}`}>Левая грань</div>
+            <div className={`${styles.side} ${styles.right}`}>Правая грань</div>
+            <div className={`${styles.side} ${styles.front}`}>Лицевая грань</div>
+          </div>
+        </div>
       </div>
-    </div>
-  );
+    );
+  }
 };
